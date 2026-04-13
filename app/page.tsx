@@ -3,9 +3,15 @@
 import { useEffect, useState } from "react";
 import { getTodos, createTodo, deleteTodo } from "../services/todoService";
 
+interface Todo {
+  _id: string;
+  title: string;
+  completed: boolean;
+}
+
 export default function Home() {
-  const [todos, setTodos] = useState([]);
-  const [title, setTitle] = useState("");
+  const [todos, setTodos] = useState<Todo[]>([]);
+  const [title, setTitle] = useState<string>("");
 
   useEffect(() => {
     fetchTodos();
@@ -20,7 +26,7 @@ export default function Home() {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!title.trim()) return;
 
@@ -36,7 +42,7 @@ export default function Home() {
     }
   };
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (id: string) => {
     try {
       await deleteTodo(id);
       fetchTodos();
