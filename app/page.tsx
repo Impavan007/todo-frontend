@@ -26,8 +26,7 @@ export default function Home() {
     }
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {    e.preventDefault();
     if (!title.trim()) return;
 
     try {
