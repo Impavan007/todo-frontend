@@ -26,7 +26,8 @@ export default function Home() {
     }
   };
 
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {    e.preventDefault();
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     if (!title.trim()) return;
 
     try {
@@ -81,8 +82,15 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {    e.preve
           </li>
         ))}
       </ul>
+
       {todos.length === 0 && (
-        <p style={{ textAlign: "center", color: "var(--text-muted)", marginTop: "1rem" }}>
+        <p
+          style={{
+            textAlign: "center",
+            color: "var(--text-muted)",
+            marginTop: "1rem",
+          }}
+        >
           No tasks left. Time to relax!
         </p>
       )}
